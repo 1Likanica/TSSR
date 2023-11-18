@@ -6,6 +6,7 @@ pip install psycopg2
 pip install drf-writable-nested
 pip install markdown
 python -m pip install django-filter
+pip install python-dotenv
 
 python manage.py runserver
 
