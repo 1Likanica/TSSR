@@ -3,7 +3,7 @@ from drf_writable_nested import WritableNestedModelSerializer
 from .models import Pereval, Authors, Coords, Images, Level
 
 
-class MyUserSerializer(serializers.ModelSerializer):
+class AuthorsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Authors
         fields = ['user_email', 'user_phone', 'user_fam', 'user_name', 'user_otc']
@@ -43,7 +43,7 @@ class LevelSerializer(serializers.ModelSerializer):
 
 
 class PerevalSerializer(WritableNestedModelSerializer):
-    user_id = MyUserSerializer()
+    user_id = AuthorsSerializer()
     coord_id = CoordSerializer()
     level_id = LevelSerializer(allow_null=True)
     images = ImagesSerializer(many=True)
