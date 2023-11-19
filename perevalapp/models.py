@@ -6,7 +6,7 @@ class Authors(models.Model):
     user_name = models.CharField('Имя', max_length=100, default='')      # - пользователь - имя
     user_otc = models.CharField('Отчество', max_length=100, default='')  # - пользователь - отчество
     user_phone = models.CharField('Тел.', max_length=20, default='')     # - пользователь - номер телефона
-    user_email = models.CharField('Почта', max_length=50, unique=True, default='')   # - пользователь - почта
+    user_email = models.CharField('Почта', max_length=50, default='')   # - пользователь - почта
 
     def __str__(self):
         return f'{self.user_fam} {self.user_name[0]}. {self.user_otc[0]}.'

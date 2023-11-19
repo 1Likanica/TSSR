@@ -8,8 +8,8 @@ from .serializers import PerevalSerializer
 class PerevalViewSet(viewsets.ModelViewSet):
     queryset = Pereval.objects.all()
     serializer_class = PerevalSerializer
-    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    # filterset_fields = ["user_id__user_email"]
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ["user_id__user_email"]
 
     def partial_update(self, request, *args, **kwargs):
         record = self.get_object()
