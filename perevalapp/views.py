@@ -1,16 +1,19 @@
-from rest_framework import viewsets
+from django.shortcuts import render
+import django_filters
+from rest_framework import generics, viewsets
 from .models import *
 from rest_framework.response import Response
-from .serializers import *
-
+from .serializers import PerevalSerializer
 
 class PerevalViewSet(viewsets.ModelViewSet):
     queryset = Pereval.objects.all()
     serializer_class = PerevalSerializer
+    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    # filterset_fields = ["user_id__user_email"]
 
     def partial_update(self, request, *args, **kwargs):
         record = self.get_object()
-        if record.status == 'NW':
+        if record.status == 'NEW':
             serializer = PerevalSerializer(record, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
