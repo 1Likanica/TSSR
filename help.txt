@@ -7,6 +7,8 @@ pip install drf-writable-nested
 pip install markdown
 python -m pip install django-filter
 pip install python-dotenv
+pip install pytest
+pip install -U drf-yasg
 
 python manage.py runserver
 
